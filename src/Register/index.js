@@ -64,18 +64,20 @@ const Register = (props: Props) => {
     <Formik
       initialValues={{
         username: '',
-        firstName: '',
-        lastName: '',
-        langKey: getLocale(),
+        password: '',
+        roles: [{id: 3,displayName: 'Trusted User', authority:'ROLE_TRUSTED_USER'}],
+        language: getLocale(),
       }}
       validationSchema={Yup.object().shape({
         username: Yup.string()
           .trim()
           .matches(/^07(0[1-2]|1[\d]|3[\d]|2[0-1])[\d]{3}[\d]{3}$/, 'please enter valid phone number')
           .required(),
-        firstName: Yup.string().required(),
-        lastName: Yup.string().required(),
-        langKey: Yup.string().required(),
+        password: Yup.string().required("password is required"),
+        confirmPassword: Yup.string()
+        .oneOf([Yup.ref('password'),null],"password does not match")
+        .required("confirm password is required"),
+        language: Yup.string().required(),
       })}
       onSubmit={registerUser}>
       {({ isValid, values, isSubmitting, status }) => {
@@ -116,18 +118,18 @@ const Register = (props: Props) => {
               </Col>
               <Col my={1} width={{ sm: 1, md: 1 / 2 }}>
                 <Field
-                  name="firstName"
-                  type="text"
-                  label="First name"
+                  name="password"
+                  type="password"
+                  label="password"
                   width={1}
                   component={TextInput.Field}
                 />
               </Col>
               <Col my={1} width={{ sm: 1, md: 1 / 2 }}>
                 <Field
-                  name="lastName"
-                  type="text"
-                  label="Last name"
+                  name="confirmPassword"
+                  type="password"
+                  label="confirm password"
                   component={TextInput.Field}
                   width={1}
                 />
