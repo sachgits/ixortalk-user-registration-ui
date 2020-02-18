@@ -109,7 +109,7 @@ const Register = (props: Props) => {
                 <Field
                   name="username"
                   type="text"
-                  label="E-mail address"
+                  label="Saf Phone Number"
                   component={TextInput.Field}
                   width={1}
                 />
