@@ -86,7 +86,7 @@ const Register = (props: Props) => {
                 <TextInput
                   name="username"
                   type="email-address"
-                  label="E-mail address"
+                  label="Saf Phone Number"
                   value={values.username}
                   onChange={() => {}}
                   component={TextInput.Field}
