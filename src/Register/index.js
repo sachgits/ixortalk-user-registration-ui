@@ -71,7 +71,7 @@ const Register = (props: Props) => {
       validationSchema={Yup.object().shape({
         username: Yup.string()
           .trim()
-          .matches(/^[07(0[1-2]|1[\d]|3[\d]|2[0-1])[\d]{3}[\d]{3}]$/, 'please enter valid phone number')
+          .matches(/^07(0[1-2]|1[\d]|3[\d]|2[0-1])[\d]{3}[\d]{3}$/, 'please enter valid phone number')
           .required(),
         firstName: Yup.string().required(),
         lastName: Yup.string().required(),
