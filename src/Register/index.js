@@ -48,7 +48,7 @@ type FormValues = {
 
 const registerUser = async (values: FormValues, form) => {
   form.setStatus(null)
-  const { status } = await fetch('http://192.168.100.51:8080/signup/saveAndCreateUser', {
+  const { status } = await fetch('http://192.168.100.52:8080/signup/saveAndCreateUser', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(values),
